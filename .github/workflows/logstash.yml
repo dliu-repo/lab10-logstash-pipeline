@@ -30,6 +30,7 @@ jobs:
           echo "deb https://artifacts.elastic.co/packages/${{ matrix.logstashversion }}.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic.list
           sudo apt-get update
           sudo apt-get install logstash
+          sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-csv
           mkdir -p /tmp/logstash/data /tmp/logstash/logs
 
       - name: Test with Logstash
